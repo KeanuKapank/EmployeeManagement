@@ -1,0 +1,45 @@
+﻿@model List<Department>
+
+<partial name="_Notification" />
+<div class="row mb-3 mx-3">
+	<div class="col-12 col-lg-6">
+		<h1>List of All Departments</h1>
+	</div>
+	<div class="col-12 col-lg-6">
+		<a asp-controller="Departments" asp-action="Create" class="btn btn-primary w-100">
+			<i class="bi bi-plus-square"></i>
+			Add New Department
+		</a>
+	</div>
+</div>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Department Name</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(Department dept in Model)
+		{
+			<tr>
+				<td>@dept.Name</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@dept.DepartmentId" class="btn btn-warning">
+						<i class="bi bi-pencil-fill"></i> Edit
+					</a>
+					<a class="btn btn-info" asp-action="Details" asp-route-id="@dept.DepartmentId">
+						<i class="bi bi-info-circle-fill"></i> Info
+					</a>
+					<a class="btn btn-danger" asp-action="Delete" asp-route-id="@dept.DepartmentId">
+						<i class="bi bi-trash-fill"></i> Delete
+					</a>
+				
+					
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

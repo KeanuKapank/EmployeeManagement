@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Admin</h1>
+    <p>Manage your business with ease</p>
+</div>
+
+<!-- Card 1 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 col-xxl-7">
+                <div class="row gy-4">
+                    <div class="col-12 col-sm-6">
+                        <div class="card shadow-sm" style="border-radius: 7px;">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title widget-card-title mb-3 text-white">Employees</h5>
+                                        <h4 class="card-subtitle text-body-secondary m-0">@TempData["NoOfEmployees"]</h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="d-flex justify-content-end">
+                                            <div class="lh-1 text-white bg-info rounded-circle p-3 d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-people-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="card shadow-md" style="border-radius: 7px;">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title widget-card-title mb-3">Departments</h5>
+                                        <h4 class="card-subtitle text-body-secondary m-0">@TempData["NoOfDepartments"]</h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="d-flex justify-content-end">
+                                            <div class="lh-1 text-white bg-info rounded-circle p-3 d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-building-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+ 
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

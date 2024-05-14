@@ -1,0 +1,107 @@
+﻿@model List<Employee>
+<partial name="_Notification" />
+@section Scripts{
+    <script>
+        var hasValue = @((TempData["empName"] != null).ToString().ToLower());
+        
+        if (hasValue) {
+            var galleryModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'), {
+                keyboard: false
+            });
+
+            galleryModal.show();
+        }
+    </script>
+} 
+
+
+<div class="row mb-3 mx-3">
+    <div class="col-12 col-lg-6">
+       <h1>List of All Employees</h1>
+    </div>
+    <div class="col-12 col-lg-6">
+        <a asp-controller="Employee" asp-action="Create" class="btn btn-primary w-100">
+            <i class="bi bi-plus-square"></i>
+             Add New Employee
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    @foreach(Employee employee in Model)
+    {
+        string imageBase64 = Convert.ToBase64String(employee.Picture);
+        string imageSrc = $"data:image/jpeg;base64,{imageBase64}";
+        <div class="col-12 col-lg-4 gx-5 mt-2">
+            <div class="card" style="width:250px; height:450px">
+                <img class="card-img-top" src="@imageSrc" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">@employee.FirstName @employee.LastName</h4>
+                <div style="height:55px">
+                    <p class="card-text">Department: @employee.Department.Name</p>
+                </div>
+                    <a asp-action="Edit" asp-route-id="@employee.EmployeeId" class="btn btn-info">
+                        <i class="bi bi-pencil-fill"></i> Edit
+                    </a>
+                <a class="btn btn-danger" asp-action="ConfirmDelete" asp-route-id="@employee.EmployeeId">
+                        <i class="bi bi-trash-fill"></i> Delete
+                    </a>
+              </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete @TempData["empName"]
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a asp-action="Delete" asp-route-id="@TempData["empId"]" class="btn btn-primary">Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
