@@ -40,7 +40,7 @@ namespace EmployeeManagement.Controllers
         // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return NotFound();
         }
 
         // GET: EmployeeController/Create

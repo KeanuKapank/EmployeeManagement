@@ -26,7 +26,7 @@ namespace EmployeeManagement.Controllers
                           
         }
 
-        // GET: Departments/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.departments == null)

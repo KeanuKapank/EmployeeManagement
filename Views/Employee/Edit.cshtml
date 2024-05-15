@@ -14,8 +14,7 @@
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
     <div>
         <div asp-validation-summary="All">
-        </div>
-    
+        </div>  
         <div class="row">
             <div class="col-12 col-lg-6">
                 <input asp-for="@Model.employee.EmployeeId" type="hidden"/>
@@ -48,6 +47,4 @@
             <input type="submit" class="btn btn-success w-100" value="Edit" />
         </div>
     </div>
-
-
 </form>
