@@ -28,8 +28,6 @@ namespace EmployeeManagement.Controllers
             return ms.ToArray();
         }
 
-
-
         // GET: EmployeeController
         public ActionResult Index()
         {
